@@ -12,10 +12,10 @@ venv:
 	. api/.venv/bin/activate
 
 test: venv
-	pytest api/test/
+	pytest api/
 
 coverage: venv
-	coverage run -m pytest api/test/
+	coverage run -m pytest api/
 
 up:
 	# Start virtual environment
