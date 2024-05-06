@@ -3,8 +3,6 @@ name: build-image-for-backend
 run-name: Build and Push docker image for backend
 on:
   workflow_call:
-    secrets: inherit
-
 
 jobs:
   # linux_arm64:

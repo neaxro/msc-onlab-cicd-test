@@ -53,3 +53,4 @@ jobs:
   build-images-for-backend:
     needs: [test, coverage]
     uses: ./.github/workflows/build-image-for-backend.yml
+    secrets: inherit
