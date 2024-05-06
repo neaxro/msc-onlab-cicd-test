@@ -46,6 +46,8 @@ jobs:
   linux_amd64:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Get version
         id: version-step
         uses: michmich112/extract-version@main
