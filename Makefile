@@ -12,7 +12,7 @@ venv:
 	. api/.venv/bin/activate
 
 test: venv
-	pytest
+	pytest api/test/
 
 up:
 	# Start virtual environment
