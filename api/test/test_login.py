@@ -2,6 +2,8 @@ from flask import Flask
 from flask_restful import Api
 import pytest
 
+from app.utils.time_management import utcnow
+
 @pytest.fixture()
 def app():
     app = Flask(__name__)
@@ -35,3 +37,8 @@ def test_dummy_1(client):
 def test_dummy_2(client):
     sum = 1 + 2
     assert sum > 2
+
+def test_json_validation(client):
+    
+    date = utcnow()
+    assert date is not None
