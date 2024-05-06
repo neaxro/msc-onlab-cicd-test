@@ -14,6 +14,9 @@ venv:
 test: venv
 	pytest api/test/
 
+coverage: venv
+	coverage run -m pytest api/test/
+
 up:
 	# Start virtual environment
 	. api/.venv/bin/activate
