@@ -3,6 +3,9 @@ name: build-image-for-backend
 run-name: Build and Push docker image for backend
 on:
   workflow_call:
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
 jobs:
   # linux_arm64:
