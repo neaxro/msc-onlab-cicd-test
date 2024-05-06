@@ -51,7 +51,7 @@ jobs:
         uses: michmich112/extract-version@main
         with:
           # specify here the path to your version file (e.g. package.json, pom.xml...)
-          version-file: version.txt
+          version-file: ./version.txt
           schema: major.minor.build
 
       - name: test
