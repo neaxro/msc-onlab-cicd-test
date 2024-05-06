@@ -1,6 +1,6 @@
 ---
-name: build-and-publish-backend
-run-name: Building and Deploying Backend
+name: test-and-coverage-backend
+run-name: Testing and creating Coverage for Backend
 
 on:
   push:   # set back to "pull_request" when finished work
@@ -49,3 +49,7 @@ jobs:
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
+
+  build-images-for-backend:
+    needs: [test, coverage]
+    uses: ./.github/workflows/build-image-for-backend.yml
