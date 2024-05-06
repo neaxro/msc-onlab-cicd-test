@@ -1,0 +1,8 @@
+{
+    "status": "{{ status }}",
+    {% if data.__class__.__name__ == 'list' and data | length > 0 %}
+        "no_data": {{ data | length }},
+    {% endif %}
+    "data": {{ data | tojson | safe }},
+    "time": "{{ datetime }}"
+}
