@@ -3,3 +3,4 @@ Flask-RESTful
 PyJWT
 pymongo
 Jinja2
+pytest
