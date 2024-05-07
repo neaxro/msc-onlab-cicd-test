@@ -1,19 +1,22 @@
 ---
-name: build-image-for-backend
+name: build-image
 run-name: Build and Push docker image for backend
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
-      - main
+      - 'main'
     paths:
       - 'api/**'
       - 'Dockerfile'
       - 'version.txt'
 
 jobs:
-  linux_arm64:
+  test:
+    uses: ./.github/workflows/test-backend.yml
+
+  build_image:
+    needs:
+      - test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
