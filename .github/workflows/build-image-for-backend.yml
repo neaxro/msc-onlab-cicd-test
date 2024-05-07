@@ -74,20 +74,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker image
+      - name: Build and push
+        uses: docker/build-push-action@v5
         env:
           BACKEND_VERSION: ${{ steps.version-step.outputs.version }}
-        run: |
-          echo "Backend version is $BACKEND_VERSION"
-
-      - name: ENV TEST
-        run: |
-          echo "Backend version is $BACKEND_VERSION"
-
-      # - name: Build and push
-      #   uses: docker/build-push-action@v5
-      #   env:
-      #     BACKEND_VERSION: ${{ steps.version-step.outputs.version }}
-      #   with:
-      #     push: true
-      #     tags: axelnemes/msc-onlab-backend:${{ env.BACKEND_VERSION }}
+        with:
+          push: true
+          tags: axelnemes/msc-onlab-backend:${{ env.BACKEND_VERSION }}
