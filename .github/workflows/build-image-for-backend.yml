@@ -7,6 +7,10 @@ on:
       - closed
     branches:
       - main
+    paths:
+      - 'api/**'
+      - 'Dockerfile'
+      - 'version.txt'
 
 jobs:
   linux_arm64:
