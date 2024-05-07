@@ -9,6 +9,11 @@ on:
       - 'Dockerfile'
       - 'version.txt'
 
+  pull_request:
+    types:
+      - opened
+      - reopened
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -51,9 +56,9 @@ jobs:
       - name: Coveralls
         uses: coverallsapp/github-action@v2
 
-  build-images-for-backend:
-    needs: [test, coverage]
-    uses: ./.github/workflows/build-image-for-backend.yml
-    secrets:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # build-images-for-backend:
+  #   needs: [test, coverage]
+  #   uses: ./.github/workflows/build-image-for-backend.yml
+  #   secrets:
+  #     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  #     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

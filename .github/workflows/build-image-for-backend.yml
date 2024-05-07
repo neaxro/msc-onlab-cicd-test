@@ -2,12 +2,11 @@
 name: build-image-for-backend
 run-name: Build and Push docker image for backend
 on:
-  workflow_call:
-    secrets:
-      DOCKERHUB_USERNAME:
-        required: true
-      DOCKERHUB_TOKEN:
-        required: true
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
 
 jobs:
   linux_arm64:
